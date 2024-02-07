@@ -127,8 +127,8 @@
         mode = "n";
       }
       {
-        action = "<cmd>Oil<CR>";
-        key = "<leader>o";
+        action = "<cmd>Ex<CR>";
+        key = "<leader>pv";
         mode = "n";
         options.desc = "Go to file explorer";
       }

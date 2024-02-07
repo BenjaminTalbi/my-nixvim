@@ -30,7 +30,7 @@ in
       }
       {
         type = "padding";
-        val = 4;
+        val = 6;
       }
       {
         type = "group";
@@ -129,7 +129,7 @@ in
       }
       {
         type = "padding";
-        val = 2;
+        val = 6;
       }
       {
         opts = {
@@ -137,7 +137,7 @@ in
           position = "center";
         };
         type = "text";
-        val = "Inspiring quote here.";
+        val = "Treat yourself as a community across time";
       }
     ];
   };
