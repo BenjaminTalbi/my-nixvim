@@ -5,10 +5,6 @@ in
 {
   extraConfigLua = "require'alpha.term'";
 
-  extraFiles = {
-    "../ascii/img3.txt" = "img3.txt";
-  };
-
   plugins.alpha = {
     enable = true;
     iconsEnabled = true;
@@ -22,12 +18,24 @@ in
           position = "center";
         };
         type = "terminal";
-        val = "";
+        val = "";#(builtins.readFile(../ascii/img1.txt));
         # command = "cat /home/benjamin/code/hobby/nixvimflake/ascii/img3.txt";
-        command = "cat ./ascii/img3.txt";
+        # command = "cat img3.txt";
+        command = "cat ${../ascii/img3.txt}";
         width = 75;
         height = 25;
       }
+      # {
+      #   opts = {
+      #     position = "center";
+      #   };
+      #   type = "terminal";
+      #   val = "";
+      #   # command = "cat /home/benjamin/code/hobby/nixvimflake/ascii/img3.txt";
+      #   command = "cat ./ascii/img3.txt";
+      #   width = 75;
+      #   height = 25;
+      # }
       {
         type = "padding";
         val = 6;
