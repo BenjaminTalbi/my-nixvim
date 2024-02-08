@@ -63,7 +63,7 @@
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
         -- show buffer diagnostics 
-        vim.keymap.set("n", "<leader>vdd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+        vim.keymap.set("n", "<leader>vD", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
             
         -- show line diagnostics
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
