@@ -15,6 +15,7 @@
   ];
 
   config = {
+    vimAlias = true;
     enableMan = true;
     colorscheme = "rose-pine";
     colorschemes = {
@@ -22,7 +23,6 @@
         enable = true;
         transparentBackground = true;
         transparentFloat = true;
-        boldVerticalSplit = true;
       };
     };
 
