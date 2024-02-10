@@ -1,6 +1,6 @@
 { pkgs, ... }:
-# https://nix-community.github.io/nixvim
 {
+  # https://nix-community.github.io/nixvim
   imports = [
     ./telescope.nix
     ./cmp.nix
@@ -15,6 +15,7 @@
   ];
 
   config = {
+    enable = true;
     vimAlias = true;
     enableMan = true;
     colorscheme = "rose-pine";
@@ -98,25 +99,25 @@
         options.desc = "Previous with fixed cursor";
       }
       {
-        action = ''[["_dP]]'';
+        action.__raw = "[[\"_dP]]" ;
         key = "<leader>p";
         mode = "x";
         options.desc = "Paste keep clipboard";
       }
       {
-        action = ''[["+y]]'';
+        action.__raw = "[[\"+y]]";
         key = "<leader>y";
         mode = [ "n" "v" ];
         options.desc = "Yank system clipboard";
       }
       {
-        action = ''[["+Y]]'';
+        action.__raw = "[[\"+Y]]";
         key = "<leader>Y";
         mode = "n";
         options.desc = "Yank system clipboard";
       }
       {
-        action = ''[["_d]]'';
+        action.__raw = "[[\"_d]]";
         key = "<leader>d";
         mode = "n";
         options.desc = "Delete to to system clipboard";
@@ -134,14 +135,31 @@
       }
     ];
 
+    plugins = {
+      indent-blankline = {
+        enable = true;
+        extraOptions = {
+          scope.enabled = false;
+        };
+      };
+      ts-autotag.enable = true;
+      treesitter-context.enable = true;
+      nvim-autopairs.enable = true;
+      gitsigns.enable = true;
+      wilder.enable = true;
+    };
+
 
     extraPlugins = with pkgs.vimPlugins; [
-      lexima-vim
+      # lexima-vim
       dressing-nvim
     ];
 
     extraPackages = with pkgs; [
       nixpkgs-fmt
+      ripgrep
+      fd
+      bat
     ];
 
   };

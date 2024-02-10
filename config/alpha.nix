@@ -1,11 +1,7 @@
-{ lib, ... }:
-let
-  image = (builtins.readFile ../ascii/img3.txt);
-in
 {
-  extraConfigLua = "require'alpha.term'";
+ extraConfigLua = "require'alpha.term'";
 
-  plugins.alpha = {
+ plugins.alpha = {
     enable = true;
     iconsEnabled = true;
     layout = [
@@ -16,14 +12,13 @@ in
       {
         opts = {
           position = "center";
+          redraw = true;
         };
         type = "terminal";
-        val = "";#(builtins.readFile(../ascii/img1.txt));
-        # command = "cat /home/benjamin/code/hobby/nixvimflake/ascii/img3.txt";
-        # command = "cat img3.txt";
-        command = "cat ${../ascii/img3.txt}";
+        val = "";
+        command = "bat -p --theme=default ${./files/ascii1.txt}";
         width = 75;
-        height = 25;
+        height = 30;
       }
       # {
       #   opts = {

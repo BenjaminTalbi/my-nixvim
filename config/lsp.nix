@@ -80,7 +80,7 @@
         -- restart lsp
         vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
           
-        vim.keymap.set("n", "<leader>k", vim.lsp.buf.format, opts)
+        vim.keymap.set("n", "<leader>j", vim.lsp.buf.format, opts)
       '';
     };
   };

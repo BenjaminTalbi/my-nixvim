@@ -1,3 +1,6 @@
 {
-  plugins.comment-nvim.enable = true;
+  plugins = {
+    comment-nvim.enable = true;
+    ts-context-commentstring.enable = true;
+  };
 }

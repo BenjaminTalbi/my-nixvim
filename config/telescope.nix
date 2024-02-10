@@ -14,13 +14,17 @@
           };
       };
     };
-
     keymaps = {
       "<leader>ff" = "find_files";
       "<leader>fr" = "oldfiles";
       "<leader>fw" = "grep_string";
       "<leader>fs" = "live_grep";
       "<C-p>" = "git_files";
+    };
+    extensions.fzf-native = {
+      enable = true;
+      fuzzy = true;
+      overrideFileSorter = true;
     };
   };
 }
