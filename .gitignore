@@ -1,3 +1,5 @@
 result
 result/*
 .vim/*
+~/.vim/undodir
+config/dap/.vim/undodir

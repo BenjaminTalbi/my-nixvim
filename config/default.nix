@@ -12,10 +12,10 @@
     ./undotree.nix
     ./alpha.nix
     ./lualine.nix
+    ./dap.nix
   ];
 
   config = {
-    enable = true;
     vimAlias = true;
     enableMan = true;
     colorscheme = "rose-pine";
@@ -39,7 +39,7 @@
       wrap = false;
       swapfile = false;
       backup = false;
-      undodir = "./.vim/undodir";
+      undodir = "~/.vim/undodir";
       undofile = true;
       hlsearch = false;
       incsearch = true;
@@ -116,12 +116,12 @@
         mode = "n";
         options.desc = "Yank system clipboard";
       }
-      {
-        action.__raw = "[[\"_d]]";
-        key = "<leader>d";
-        mode = "n";
-        options.desc = "Delete to to system clipboard";
-      }
+      # {
+      #   action.__raw = "[[\"_d]]";
+      #   key = "<leader>d";
+      #   mode = "n";
+      #   options.desc = "Delete to to system clipboard";
+      # }
       {
         action = "<nop>";
         key = "Q";
