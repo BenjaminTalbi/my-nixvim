@@ -12,7 +12,7 @@
     ./undotree.nix
     ./alpha.nix
     ./lualine.nix
-    ./dap.nix
+    ./dap
   ];
 
   config = {
