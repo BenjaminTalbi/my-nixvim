@@ -12,7 +12,7 @@
     ./undotree.nix
     ./alpha.nix
     ./lualine.nix
-    ./dap
+    ./obsidian.nix
   ];
 
   config = {
@@ -39,7 +39,7 @@
       wrap = false;
       swapfile = false;
       backup = false;
-      undodir = "~/.vim/undodir";
+      undodir = "./.vim/undodir";
       undofile = true;
       hlsearch = false;
       incsearch = true;
@@ -99,7 +99,7 @@
         options.desc = "Previous with fixed cursor";
       }
       {
-        action.__raw = "[[\"_dP]]" ;
+        action.__raw = "[[\"_dP]]";
         key = "<leader>p";
         mode = "x";
         options.desc = "Paste keep clipboard";
@@ -116,12 +116,12 @@
         mode = "n";
         options.desc = "Yank system clipboard";
       }
-      # {
-      #   action.__raw = "[[\"_d]]";
-      #   key = "<leader>d";
-      #   mode = "n";
-      #   options.desc = "Delete to to system clipboard";
-      # }
+      {
+        action.__raw = "[[\"_d]]";
+        key = "<leader>d";
+        mode = "n";
+        options.desc = "Delete to to system clipboard";
+      }
       {
         action = "<nop>";
         key = "Q";
@@ -132,6 +132,18 @@
         key = "<leader>pv";
         mode = "n";
         options.desc = "Go to file explorer";
+      }
+      {
+        action = ":cn<CR>";
+        key = "<leader>qj";
+        mode = "n";
+        options.desc = "Jump to next quickfix entry";
+      }
+      {
+        action = ":cp<CR>";
+        key = "<leader>qk";
+        mode = "n";
+        options.desc = "Jump to next quickfix entry";
       }
     ];
 
@@ -147,6 +159,8 @@
       nvim-autopairs.enable = true;
       gitsigns.enable = true;
       wilder.enable = true;
+      hardtime.enable = true;
+      fidget.enable = true;
     };
 
 
@@ -162,6 +176,20 @@
       bat
     ];
 
+    autoGroups = {
+      markdown_conceal = {
+        clear = true;
+      };
+    };
+
+    autoCmd = [
+      {
+        event = [ "FileType" ];
+        pattern = [ "markdown" ];
+        group = "markdown_conceal";
+        command = "setlocal conceallevel=2";
+      }
+    ];
   };
 
 }

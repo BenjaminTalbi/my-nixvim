@@ -19,9 +19,12 @@
                 focusable = true,
             }
         }
+
+        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with( vim.lsp.handlers.hover, {border = 'rounded'})
+        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with( vim.lsp.handlers.signature_help, {border = 'rounded'})
       '';
       capabilities = ''
-        capabilities =  require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
       '';
       servers = {
         nil_ls = {
@@ -35,7 +38,7 @@
         html.enable = true;
         lua-ls.enable = true;
         emmet_ls = {
-          enable = true;
+          enable = false;
         };
       };
       onAttach = ''
@@ -69,7 +72,7 @@
         vim.keymap.set("n", "<leader>vd", vim.diagnostic.open_float, opts)
         
         -- go to next diagnostics
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
  
         -- go to previous diagnostics
         vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
@@ -80,7 +83,7 @@
         -- restart lsp
         vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
           
-        vim.keymap.set("n", "<leader>j", vim.lsp.buf.format, opts)
+        vim.keymap.set("n", "<leader>fj", vim.lsp.buf.format, opts)
       '';
     };
   };
